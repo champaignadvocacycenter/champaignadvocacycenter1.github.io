@@ -12,6 +12,17 @@
     min-height: 7vh;
 }
 
+.staff{
+    display: flex;
+    justify-content: center;
+}
+.staffInfo{
+    width: 25%;
+}
+.staffInfo .headshot{
+    width: 100%;
+}
+
 .navigation{
     display: flex;
     justify-content: flex-end;
@@ -265,6 +276,9 @@ footer .glyphicon {
     padding: 7vh;
     height: 93vh;
 }
+.contact .map{
+    width: 100%;
+}
 .contactRight{
     width: 15%;
 }
@@ -272,10 +286,6 @@ footer .glyphicon {
     width:15%;
 }
 #services{
-    padding: 7vh;
-    height: 93vh;
-}
-#staff{
     padding: 7vh;
     height: 93vh;
 }
