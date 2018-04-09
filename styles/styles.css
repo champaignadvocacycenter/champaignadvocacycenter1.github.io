@@ -17,6 +17,10 @@
     justify-content: flex-end;
     float: none;
 }
+.navigation .dropdown-menu{
+    background-color: #E6995A;
+    opacity: 1;
+}
 
 #navlist {
     display: flex;
@@ -171,7 +175,6 @@ p {
     background-color: #E6995A;
     border: 0;
     font-size: 12px !important;
-    line-height: 66px;
     letter-spacing: 4px;
     border-radius: 0;
     font-family: Montserrat, sans-serif;
@@ -219,14 +222,43 @@ footer .glyphicon {
     animation-duration: 1s;
     -webkit-animation-duration: 1s;
     visibility: visible;
+    z-index: 0;
 }
 
+#slideShow{
+    margin-top: 15vh;
+    position: relative;
+    min-height: 75vh;
+    max-height: 75vh;
+}
+#about{
+    padding-top: 10vh;
+}
+#ncaLogo{
+    padding: 20px;
+}
+
+
+#whoWeAre{
+    max-height:100vh;
+    
+}
+
+#whoWeAre img {
+    width: 100%;
+}
+
+#whatWeDo{
+    margin: 3vh;
+}
 #services{
     height:100vh;
 }
-.item{
+.carousel-inner{
     margin: 15vh 0 10vh 0;
     height: 75vh;
+    overflow: hidden;
+    position: relative;
 }
 
 #contact{
