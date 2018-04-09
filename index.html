@@ -1,194 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Champaign Children's Advocacy Center</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Champaign Children's Advocacy Center</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="scripts/main.js"></script>
-
-  <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="scripts/d3pie.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+        
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+        
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        .active:after {
+            content: "\2212";
+        }
+        
+        .panel-expander {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-  <div class="topbar">
-      <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
-
-          <div class="navigation nav navbar-nav" id="navigation">
-              <ul id="navlist">
-                  <li><a href="#about">ABOUT</a></li>
-                  <li><a href="#staff">STAFF</a></li>
-                  <li><a href="#contact">CONTACT</a></li>
-                  <li>
-                    <div class="dropdown">
-                      <div data-toggle="dropdown">
-                          RESOURCES
-                          <span class="caret"></span>
-
-                      </div>
-                      <ul class="dropdown-menu">
-                        <li><a href="http://www.co.champaign.il.us/CAC/clients.php">For Clients</a></li>
-                        <li><a href="http://www.co.champaign.il.us/CAC/clients.php">For Parents</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li><a href="/support.html">SUPPORT US</a></li>
-
-              </ul>
-          </div>
-        </nav>
-  </div>
-
-  <div id="columnLeft" class="column side"></div>
-
-  <div id="content" class="column middle">
-    <!-- Slideshow -->
-    <div id="slideShow">
-      
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-          
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="child2.jpg" alt="child-stock2">
-              </div>
-          
-              <div class="item">
-                <img src="child1.jpg" alt="child-stock1">
-              </div>
-          
-              <div class="item">
-                <img src="hero.jpg" alt="hero">
-              </div>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="topbar">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+            <div class="navigation nav navbar-nav" id="navigation">
+                <ul id="navlist">
+                    <li><a href="#content">WHAT IS CAC?</a></li>
+                    <li><a href="#resources">RESOURCES</a></li>
+                    <li><a href="#why">WHY DOES IT MATTER?</a></li>
+                    <li><a href="#support">SUPPORT US</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
             </div>
-          
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#carousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-              </ol>
-        </div>
-
-    </div>
-    
-
-    <!-- Container (About Section) -->
-    <div id="about">
-      <div id="whoWeAre" class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6">
-            <h2>Who We Are</h2><br>
-
-            <p>
-                The Children's Advocacy Center is a facility dedicated to pursuing the truth in child abuse 
-                investigations. Professionals from child protective services, law enforcement, prosecution, 
-                victim advocacy agencies and the medical and mental health communities come together to 
-                investigate and intervene in cases of suspected child sexual and serious physical abuse. 
-                Designed as a safe and welcoming place for children to be heard, the CAC ensures that 
-                children are not further victimized by the systems intended to protect them.
-            </p>
-
-            <a href="#contact" class="btn btn-info" role="button">Get In Touch</a>
-          </div>
-
-          <div id="ncaLogo" class="col-sm-6">
-              <img src="NCA.jpg" alt="NCALogo" width="100%">
-          </div>
-
-        </div>
-        
-
-      </div>
-
-      <div id="whatWeDo" class="container-fluid">
-        <div class="row">
-          <div class="col-sm-4">
-              <img typeof="foaf:Image" src="http://www.nationalchildrensalliance.org/sites/default/files/infographic-2-hands.png" width="188" height="188">          
-          </div>
-          <div class="col-sm-8">
-            <h4><strong>WHAT WE DO:</strong> </h4>
-            <p>
-                The mission of the Children's Advocacy Center is to coordinate a timely, 
-                comprehensive, and multidisciplinary response to child sexual abuse and serious 
-                physical abuse allegations in a safe, agency-neutral, child-focused setting. 
-            </p>
-
-          </div>
-        </div>
-      </div>
+        </nav>
     </div>
 
-    <!-- Container (STAFF Section) -->
-    <div id="staff" class="container-fluid text-center bg-grey">
-      <h2>Meet the Staff</h2><br>
-      <div class="staff">
-        <div class="staffInfo">
-            <img class="headshot" src="face.png" alt="Paris">
-            <p><strong>Paris</strong></p>
-            <p>Yes, we built Paris</p>
+    <div id="columnLeft" class="column side"></div>
+
+    <div id="content" class="column middle">
+        <!-- Slideshow -->
+        <div id="slideShow">
+
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="CACLogoWords%20-%20Reduced.png" alt="logo">
+                    </div>
+                    
+                    <div class="item">
+                        <img src="child2.jpg" alt="child-stock2">
+                    </div>
+                    
+                    <div class="item">
+                        <img src="child1.jpg" alt="child-stock1">
+                    </div>
+
+                    <div class="item">
+                        <img src="hero.jpg" alt="hero">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                    <li data-target="#carousel" data-slide-to="2"></li>
+                    <li data-target="#carousel" data-slide-to="3"></li>
+                </ol>
+            </div>
+
         </div>
 
-        <div class="staffInfo">
-            <img class="headshot" src="face.png" alt="Paris">
-            <p><strong>Paris</strong></p>
-            <p>Yes, we built Paris</p>
+        <!-- Container (About Section) -->
+        <div id="whatWeDo" class="container-fluid">
+            <h2><strong>WHAT WE DO:</strong> </h2>
+            <h4>
+                The mission of the Children's Advocacy Center is to coordinate a timely, comprehensive, and multidisciplinary response to child sexual abuse and serious physical abuse allegations in a safe, agency-neutral, child-focused setting.
+            </h4>
+            <h2>Who We Are</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img typeof="foaf:Image" src="http://www.nationalchildrensalliance.org/sites/default/files/infographic-2-hands.png" width="254" height="254">
+                </div>
+                <div class="col-sm-8">
+
+                    <p>
+                        The Children's Advocacy Center is a facility dedicated to pursuing the truth in child abuse investigations. Professionals from child protective services, law enforcement, prosecution, victim advocacy agencies and the medical and mental health communities come together to investigate and intervene in cases of suspected child sexual and serious physical abuse. Designed as a safe and welcoming place for children to be heard, the CAC ensures that children are not further victimized by the systems intended to protect them. The Children's Advocacy Center facilitates investigations, makes medical and treatment referrals, and assists with any consequent legal proceedings in order to protect and support the children it serves and their families. We also provide comprehensive case management and crisis intervention services for all children referred to the Center and their non-offending family members.
+                    </p>
+
+                    <a href="#contact" class="btn btn-info" role="button">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div id="resources" class="container-fluid">
+            <div class="row">
+                <h2>Resources</h2>
+                <div class="row">
+                <div class="col-sm-4">
+                    <a href="http://www.nationalchildrensalliance.org/"><img src="NCA.jpg"></a>
+                </div>
+                    <div class="col-sm-8">
+                    <p>
+                        The Children's Advocacy Center has resources available for parents and children about child abuse and the legal process of reporting.
+                        
+                        We are a proud partner of the National Children's Alliance.
+                        <br>
+                        If you have any questions, please feel free to reach out.
+                    </p>
+                    <button class="accordion">Resources for Parents</button>
+                    <div class="panel-expander">
+                        <p>
+                            <br>We understand that this is a very difficult time for you. Any hint or suspicion of abuse of your child causes many strong and confusing emotions. The process of determining what happened to your child and how to proceed from there may seem quite overwhelming.
+                            <br>
+                            <br> In some situations, the child may feel ashamed or otherwise unable to come forward. In others, a child will not even realize they are being abused. That is why it is so important that the adults treat children who come forward like the heroes they are. It takes immense bravery to disclose abuse and the child will require support to heal.
+                            <br>
+                            <br> For more information, please visit our county resource page for advice, what to expect, and other warning signs.</p>
+                        <a href="http://www.co.champaign.il.us/CAC/clients.php#Parents" class="btn btn-info" role="button">More Resources for Parents</a>
+                        <br>
+                        <br>
+                    </div>
+
+                    <button class="accordion">Resources for Children</button>
+                    <div class="panel-expander">
+                        <p>
+                            <br>Abuse is never the victim's fault. Coming forward is one of a bravest more heroic things a survivor of abuse can do. It prevents an abuser from hurting other people and begins a long road of healing for the child.
+                            <br>
+                            <br> We want to help you heal and we want to help you find justice for what has happened. We know that you are going through a hard time and we want to make sure that you feel comfortable and supported.
+                            <br>
+                            <br> For more information, please visit our county resource page for information about abuse and what happens when a child discloses.</p>
+                        <a href="http://www.co.champaign.il.us/CAC/clients.php#section-Investigation" class="btn btn-info" role="button">More Resources for Parents</a>
+                        <br>
+                        <br>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container (Why It Matters Section) -->
+            <div id="why">
+                <div id="whyitmatters" class="container-fluid">
+                    <div class="row">
+                        <h2>Why it matters?</h2>
+                        <br>
+                        <center>
+                        <p>
+                        By the age of 18, ~10% of boys report sexual abuse.
+                        </p>
+                        <a href="http://victimsofcrime.org/media/reporting-on-child-sexual-abuse/child-sexual-abuse-statistics"><img src="1in10boys.png"></a>
+                        <p>
+                        By the age of 18, ~20% of girls report sexual abuse.
+                        </p>
+                        <a href="http://victimsofcrime.org/media/reporting-on-child-sexual-abuse/child-sexual-abuse-statistics"><img src="2in10girls.png"></a>
+                        <p>
+                        ~90% of abused children are hurt by people they know.
+                        </p>
+                        <a href="http://victimsofcrime.org/media/reporting-on-child-sexual-abuse/child-sexual-abuse-statistics"><img src="90.png"></a>
+                        </center>
+                        <br>
+                        <p>
+                            Our goal at the CAC is to provide children and non-offending family members with services and resources to begin healing. We help law enforcement gather testimonies to be used in the subsequent investigation as well as counseling services for the victims and their non offending family members. It can be difficult to think about child abuse in our community because it is a horror that we often forget happens.
+                            
+                        </p>
+                        <h4>In 2017, Champaign County CAC helped 233 children:</h4>
+                        <div class="col-sm-4">
+                        <div id="pieChartRace"></div>
+                        </div>
+                        <div id="pieChartAge"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container (Support Section) -->
+            <div id="support">
+                <div id="supportc" class="container-fluid">
+                    <div class="row">
+                        <h2>Support Us</h2>
+                        <div class="col-sm-4">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FChildrens-Advocacy-Center-of-Champaign-County-236651286501309%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                        </div>
+                        <br>
+                        <p>
+                            All services at the CAC are done at no-charge to the children or families because we believe families should not be burdened with the financial cost of legal proceedings to bring justice to the offender or the therapy required to recover from the actions of that person. We receive funding from the state and federal government to supplement the cost of operation, but it is often not enough. This requires the CAC to rely on the private donations of individuals in the community to help pay for services such as therapy for the children. Every child helped at our facility is a child that lives in Champaign or Ford county. All donations collected are spent to help the victims of child sexual abuse and severe physical abuse recover. Each donation can be thought of as an investment into our community. <br>
+                            By donating to our organization, you are guaranteeing each child who visits the CAC is supplied proper assistance in the journey to recovery. Annually, there are over 200 children that are referred to us after sexual abuse has been reported, each with the potential to live meaningful life, free of mental struggles (reword) cause by abuse. Any donation is appreciated; however, child sexual abuse is an inevitable (reword) problem. Every year there are new cases reported to the authorities that requires our services. Recurring donations help us keep our doors open so we can continuously help those affected year after year. Please use the donation box below to make sure children get the help they deserve
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container (Contact Section) -->
+            <div id="contact" class="container-fluid bg-grey">
+                <h2 class="text-center">CONTACT</h2>
+                <div class="contactRight"></div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p>To report suspected abuse in Illinois call: <br></p>
+                        <p>1-800-25-ABUSE (1-800-252-2873)</p><br>
+                        <p>Outside of Illinois, call: 1-800-422-4453</p><br>
+                        <p>Reporting Data: http://www.co.champaign.il.us/CAC/BoardMeetings.php</p>
+                        <p><span class="glyphicon glyphicon-map-marker"></span> 201 W Kenyon Rd, Champaign, IL 61820</p>
+                        <p><span class="glyphicon glyphicon-phone"></span> (217) 384-1266</p>
+                    </div>
+                    <div class="col-sm-7 map">
+                        <a href="https://www.google.com/maps/dir//Children's+Advocacy+Center+of+Champaign+County,+201+W+Kenyon+Rd,+Champaign,+IL+61820/@40.1336335,-88.2639997,14z/data=!4m9!4m8!1m0!1m5!1m1!1s0x880cd9ff8a360e59:0x5233f495207f3a75!2m2!1d-88.2464902!2d40.1336335!3e0">
+                            <img src="map.png" alt="map" width="100%;">
+                        </a>
+                    </div>
+                </div>
+                <div class="contactLeft"></div>
+            </div>
         </div>
 
-        <div class="staffInfo">
-            <img class="headshot" src="face.png" alt="Paris">
-            <p><strong>Paris</strong></p>
-            <p>Yes, we built Paris</p>
-        </div>
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
 
-        <div class="staffInfo">
-            <img class="headshot" src="face.png" alt="Paris">
-            <p><strong>Paris</strong></p>
-            <p>Yes, we built Paris</p>
-        </div>
-      </div>
-
-    </div>
-  
-    <!-- Container (Contact Section) -->
-    <div id="contact" class="container-fluid bg-grey">
-      <h2 class="text-center">CONTACT</h2>
-      <div class="contactRight"></div>
-      <div class="row">
-        <div class="col-sm-5">
-          <p>To report suspected abuse in Illinois call 1-800-25-ABUSE (1-800-252-2873).
-              Outside of Illinois, call 1-800-422-4453.</p>
-          <p><span class="glyphicon glyphicon-map-marker"></span> 201 W Kenyon Rd, Champaign, IL 61820</p>
-          <p><span class="glyphicon glyphicon-phone"></span>  (217) 384-1266</p>
-        </div>
-        <div class="col-sm-7 map">
-          <a href="https://www.google.com/maps/dir//Children's+Advocacy+Center+of+Champaign+County,+201+W+Kenyon+Rd,+Champaign,+IL+61820/@40.1336335,-88.2639997,14z/data=!4m9!4m8!1m0!1m5!1m1!1s0x880cd9ff8a360e59:0x5233f495207f3a75!2m2!1d-88.2464902!2d40.1336335!3e0">
-            <img src="map.png" alt="map" width="100%;">
-          </a>
-        </div>
-      </div>
-      <div class="contactLeft"></div>
-    </div>
-  </div>
-
-  <div id="columnRight" class="column side"></div>
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+        <script>
+var pie = new d3pie("pieChartAge", {
+	"header": {
+		"title": {
+			"text": "Age Breakdown",
+			"fontSize": 24,
+			"font": "lato"
+		},
+		"titleSubtitlePadding": 9
+	},
+	"footer": {
+		"color": "#999999",
+		"fontSize": 10,
+		"font": "open sans",
+		"location": "bottom-left"
+	},
+	"size": {
+		"canvasWidth": 590,
+		"pieInnerRadius": "25%",
+		"pieOuterRadius": "90%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"content": [
+			{
+				"label": "Under 6 years",
+				"value": 24,
+				"color": "#2383c1"
+			},
+			{
+				"label": "7-12 years",
+				"value": 82,
+				"color": "#64a61f"
+			},
+			{
+				"label": "13-17 years",
+				"value": 85,
+				"color": "#7b6788"
+			},
+			{
+				"label": "Over 18",
+				"value": 2,
+				"color": "#a05c56"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"hideWhenLessThanPercentage": 3
+		},
+		"mainLabel": {
+			"fontSize": 11
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#adadad",
+			"fontSize": 11
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	}
+});
+</script>
+        <script>
+var pie = new d3pie("pieChartRace", {
+	"header": {
+		"title": {
+			"text": "Race Breakdown",
+			"fontSize": 24,
+			"font": "lato"
+		},
+		"titleSubtitlePadding": 9
+	},
+	"size": {
+		"canvasWidth": 590,
+		"pieInnerRadius": "25%",
+		"pieOuterRadius": "90%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"smallSegmentGrouping": {
+			"enabled": true,
+			"value": 10
+		},
+		"content": [
+			{
+				"label": "White",
+				"value": 150,
+				"color": "#2383c1"
+			},
+			{
+				"label": "African American",
+				"value": 43,
+				"color": "#64a61f"
+			},
+			{
+				"label": "Bi/Multi Racial",
+				"value": 15,
+				"color": "#7b6788"
+			},
+			{
+				"label": "Asian",
+				"value": 1,
+				"color": "#a05c56"
+			},
+			{
+				"label": "Hispanic",
+				"value": 24,
+				"color": "#961919"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"hideWhenLessThanPercentage": 3
+		},
+		"mainLabel": {
+			"fontSize": 11
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#adadad",
+			"fontSize": 11
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	}
+});
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChartGender", {
+	"header": {
+		"title": {
+			"text": "CAC's 2017 Work by Gender",
+			"fontSize": 24,
+			"font": "lato"
+		},
+		"subtitle": {
+			"color": "#999999",
+			"fontSize": 12,
+			"font": "open sans"
+		},
+		"titleSubtitlePadding": 9
+	},
+	"footer": {
+		"color": "#999999",
+		"fontSize": 10,
+		"font": "open sans",
+		"location": "bottom-left"
+	},
+	"size": {
+		"canvasWidth": 590,
+		"pieInnerRadius": "25%",
+		"pieOuterRadius": "90%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"content": [
+			{
+				"label": "Male",
+				"value": 59,
+				"color": "#7b6788"
+			},
+			{
+				"label": "Female",
+				"value": 174,
+				"color": "#a05c56"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 32
+		},
+		"inner": {
+			"hideWhenLessThanPercentage": 3
+		},
+		"mainLabel": {
+			"fontSize": 11
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#adadad",
+			"fontSize": 11
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	}
+});
+</script>
+</script>
 </body>
+
 </html>

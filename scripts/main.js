@@ -1,7 +1,7 @@
 // NAVBAR RESIZING
 window.addEventListener('scroll', function(e){
     var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shrinkOn = 30;
+        shrinkOn = 65;
         shrinkOnNav = 65;
         navlist = document.getElementById("navlist");
         navbar = document.getElementById("navbar");
@@ -11,7 +11,6 @@ window.addEventListener('scroll', function(e){
     } else {
         navlist.classList.remove("smaller");
     }
-
     if (distanceY > shrinkOnNav ){
         navbar.classList.add("navBarSmall");
         navbar.classList.remove("navBarLarge");
@@ -19,9 +18,7 @@ window.addEventListener('scroll', function(e){
         navbar.classList.remove("navBarSmall");
         navbar.classList.add("navBarLarge");
     }
-
 });
-
 
 // SMOOTH SCROLLING
 $(document).ready(function(){

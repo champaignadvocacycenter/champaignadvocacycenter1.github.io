@@ -29,18 +29,17 @@
     float: none;
 }
 .navigation .dropdown-menu{
-    background-color: #0E284C;
     opacity: 1;
 }
 
 #navlist {
     display: flex;
     justify-content: space-around;
-    padding: 0;
+    padding: 5;
     width: 75%;
     list-style: none;
     text-decoration: none;
-    color: #6b6a6a;
+    color: #fff;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -49,6 +48,7 @@
     margin: 40px 0 0 0;
 }
 #navlist li{
+    background-color: #0E284C;
     opacity: 0.5;
 }
 #navlist li:hover {
@@ -68,32 +68,32 @@
 body {
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
-    color: #818181;
+    color: #000;
 }
 h2, h3 {
-    font-size: 24px;
+    font-size: 35px;
     text-transform: uppercase;
-    color: #303030;
+    color: #000;
     font-weight: 600;
     margin-bottom: 30px;
 }
 h4 {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.375em;
     color: #303030;
     font-weight: 400;
     margin-bottom: 30px;
 } 
 p {
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.375em;
-    color: #e7dddd;
+    color: #303030;
     font-weight: 400;
     margin-bottom: 30px;
 }  
 .jumbotron {
     color: #fff;
-    padding: 100px 25px;
+    padding: 500px 15px;
     font-family: Montserrat, sans-serif;
 }
 .container-fluid {
@@ -185,11 +185,11 @@ p {
     z-index: 1;
     background-color: #0E284C;
     border: 0;
-    font-size: 12px !important;
-    letter-spacing: 4px;
+    font-size: 15px !important;
+    letter-spacing: 3px;
     border-radius: 0;
     font-family: Montserrat, sans-serif;
-    min-height: 20px;
+    min-height: 30px;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -200,7 +200,7 @@ p {
     height: 7vh;
 }
 .navBarLarge{
-    height: 15vh;
+    height: 10vh;
 }
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
