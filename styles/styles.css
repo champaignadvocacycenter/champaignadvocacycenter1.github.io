@@ -4,7 +4,7 @@
     width: 0%;
 }
 .column.middle {
-    width: 100%;
+    width: 150%;
     box-sizing: border-box;
     min-height: 100vh;
 }
@@ -29,7 +29,7 @@
     float: none;
 }
 .navigation .dropdown-menu{
-    background-color: #E6995A;
+    background-color: #0E284C;
     opacity: 1;
 }
 
@@ -103,11 +103,11 @@ p {
     background-color: #f6f6f6;
 }
 .logo-small {
-    color: #E6995A;
+    color: #0E284C;
     font-size: 50px;
 }
 .logo {
-    color: #E6995A;
+    color: #0E284C;
     font-size: 200px;
 }
 .thumbnail {
@@ -142,7 +142,7 @@ p {
     font-style: normal;
 }
 .panel {
-    border: 1px solid #E6995A; 
+    border: 1px solid #0E284C; 
     border-radius:0 !important;
     transition: box-shadow 0.5s;
 }
@@ -150,13 +150,13 @@ p {
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
 }
 .panel-footer .btn:hover {
-    border: 1px solid #E6995A;
+    border: 1px solid #0E284C;
     background-color: #fff !important;
-    color: #E6995A;
+    color: #0E284C;
 }
 .panel-heading {
     color: #fff !important;
-    background-color: #E6995A !important;
+    background-color: #0E284C !important;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -176,14 +176,14 @@ p {
 }
 .panel-footer .btn {
     margin: 15px 0;
-    background-color: #E6995A;
+    background-color: #0E284C;
     color: #fff;
 }
 .navbar {
     width: 100%;
     position: fixed;
     z-index: 1;
-    background-color: #E6995A;
+    background-color: #0E284C;
     border: 0;
     font-size: 12px !important;
     letter-spacing: 4px;
@@ -206,7 +206,7 @@ p {
     color: #fff !important;
 }
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #E6995A !important;
+    color: #0E284C !important;
     background-color: #fff !important;
     transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
@@ -224,7 +224,7 @@ p {
 footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #E6995A;
+    color: #0E284C;
 }
 .slideanim {visibility:hidden;}
 .slide {
